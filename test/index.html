@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+    <form id="cadastroForm" va_form_description="Iniciando preenchimento do cadastro de usuário.">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" voice="Fale o seu nome">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" voice="Fale o seu email">
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" voice="Fale o seu telefone">
+        </div>
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" voice="Fale o seu endereço">
+        </div>
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+    <button va_fill_form="cadastroForm">Iniciar Preenchimento por Voz</button>
+
+    <script src="../VoiceAssistant.js"></script>
+</body>
+</html>
