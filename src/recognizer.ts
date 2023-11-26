@@ -6,7 +6,7 @@ class Recognizer{
     private microfonePermissionStatus:string
     
 
-    constructor(options:FillOptions = {}){
+    constructor(options:FillOptions = {lang:'pt-BR'}){
         Object.entries(options).forEach(([key,value]) => {
             this.recognition[key] = value
         })
@@ -22,13 +22,7 @@ class Recognizer{
         this.recognition.onend = trigger
     }
 
-    onError(trigger:(event) => void) : void{
-        this.recognition.onerror = trigger
-    }
-
-    onResult(trigger:(event) => void) : void{
-        this.recognition.onresult = trigger
-    }
+   
 
     speak(text) : Promise<SpeechSynthesisEvent>{
         return new Promise((resolve, reject) => {
@@ -44,8 +38,22 @@ class Recognizer{
     }
 
     listen(){
-        this.va_audio.play();
-        this.recognition.start();
+        return new Promise((resolve, reject) => {
+            this.va_audio.play();
+            
+            this.recognition.onresult = (event) => {
+                resolve(event)
+            }
+            
+            this.recognition.onerror = (event) => {
+                reject(event)
+            }
+
+            this.recognition.start();
+        })
+
+
+        
     }
 
 

@@ -1,4 +1,4 @@
 export interface FillOptions{
-    lang?: 'pt-BR',
+    lang: 'pt-BR',
     interimResults?: boolean,
 }
