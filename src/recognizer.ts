@@ -7,7 +7,27 @@ class Recognizer{
         Object.entries(options).forEach(([key,value]) => {
             this.recognition[key] = value
         })
+
+        this.onEnd((event) => {
+            this.recognition.onend = null;
+            this.recognition.stop();
+            return;
+        })
     }
+
+    onEnd(trigger:(event) => void){
+        this.recognition.onend = trigger
+    }
+
+    onError(trigger:(event) => void){
+        this.recognition.onerror = trigger
+    }
+
+    onResult(trigger:(event) => void){
+        this.recognition.onresult = trigger
+    }
+
+
 }
 
 export default Recognizer
