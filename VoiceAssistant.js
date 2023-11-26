@@ -138,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             va_listen();
                         }
                     };
+
+                    utterance
                 }
 
                 function fillNextField(currentIndex) {
@@ -188,14 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (form) {
 
-                    navigator.permissions.query({name: 'microphone'})
-                    .then(function(permissionStatus) {
-                        if (permissionStatus.state != 'granted') {
-                            va_speak("Por favor, permita o uso do microfone para usar esta função.");
-                        }
-                    }).catch(function(error) {
-                        console.log('Erro ao verificar permissão de microfone:', error);
-                    });
+                    
 
                     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
