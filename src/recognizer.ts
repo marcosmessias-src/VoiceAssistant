@@ -1,8 +1,9 @@
 import { FillOptions } from "../interfaces/fillOptions";
 
 class Recognizer{
-    recognition:any = new (window["SpeechRecognition"] || window["webkitSpeechRecognition"])();
+    private recognition:any = new (window["SpeechRecognition"] || window["webkitSpeechRecognition"])();
     
+
     constructor(options:FillOptions = {}){
         Object.entries(options).forEach(([key,value]) => {
             this.recognition[key] = value
@@ -25,6 +26,18 @@ class Recognizer{
 
     onResult(trigger:(event) => void){
         this.recognition.onresult = trigger
+    }
+
+    speak(text){
+        return new Promise((resolve, reject) => {
+            const speaker :SpeechSynthesisUtterance =new SpeechSynthesisUtterance(text) 
+
+            window.speechSynthesis.speak(speaker);
+
+            speaker.onend = (event) => resolve(event)
+            speaker.onerror = (event) => reject(event)
+        })
+
     }
 
 
