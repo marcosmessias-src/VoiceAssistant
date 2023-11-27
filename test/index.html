@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DO<CTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,24 +31,10 @@
 
     <button va_fill_form="cadastroForm">Iniciar Preenchimento por Voz</button>
 
-    <script src="../VoiceAssistant.js"></script>
+    <script src="../index.ts"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("teste: ")
-            
-            navigator.mediaDevices.enumerateDevices()
-                .then(text => {
-                    console.log("text: ", text)
-                })
-
-            
-            // navigator.permissions.query({name: 'microphone'})
-            //             .then(function(permissionStatus) {
-            //                 console.log("permissionStatus: ", permissionStatus)
-            //             }).catch(function(error) {
-            //                 console.log('Erro ao verificar permissão de microfone:', error);
-            //             });
-        })
+        fillForm("cadastroForm")
     </script>
+    
 </body>
 </html>

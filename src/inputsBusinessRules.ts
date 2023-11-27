@@ -8,16 +8,6 @@ const InputsBusinessRules = {
 
         return voicePrompt
         
-    },
-    password:(field: Element, texts) => {
-        (field as any).focus();
-
-        field.addEventListener("keydown", function(event) {
-
-            if ((event as any).keyCode === 9) {
-              
-            }
-        });
     }
 }
 
