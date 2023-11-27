@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <h1>Cadastro de Usuário</h1>
     <form id="cadastroForm" va_form_description="Iniciando preenchimento do cadastro de usuário.">
         <div class="form-group">
@@ -29,12 +30,19 @@
         <button type="submit">Enviar</button>
     </form>
 
-    <button va_fill_form="cadastroForm">Iniciar Preenchimento por Voz</button>
+    <button id="button" va_fill_form="cadastroForm">Iniciar Preenchimento por Voz</button>
 
-    <script src="../index.ts"></script>
-    <script>
-        fillForm("cadastroForm")
+    <script type="module">
+        import {fillForm} from "../src/index.js"
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     console.log("teste: ")
+
+        //     fillForm('cadastroForm')
+        // })
+        document.getElementById("button").addEventListener("click",(event) => {
+            fillForm("cadastroForm")
+        })
     </script>
-    
 </body>
 </html>
