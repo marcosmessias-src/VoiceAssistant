@@ -1,11 +1,10 @@
 function va_validEmail(email) {
-    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
 function va_emailField(txt) {
-    let txtNoSpace = txt.replace(/\s/g, '');
-    let txtLower = txtNoSpace.toLowerCase();
+    let txtLower = txt.replace('arroba', '@').replace(/\s/g, '').toLowerCase();
     return txtLower;
 }
 
